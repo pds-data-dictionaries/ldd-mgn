@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mgn  Version:1.0.0.0 - Fri Oct 06 16:28:55 UTC 2023 -->
+  <!-- PDS4 Schematron for Name Space Id:mgn  Version:1.0.0.0 - Fri Oct 06 17:00:53 UTC 2023 -->
   <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
