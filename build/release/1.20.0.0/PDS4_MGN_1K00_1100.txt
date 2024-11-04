@@ -1,13 +1,13 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        14.3.0
-   LDD Version Id:        1.0.0.0
+   LDDTool Version        15.1.0
+   LDD Version Id:        1.1.0.0
    LDD Label Version Id:  1.26
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Fri Oct 06 17:00:53 UTC 2023
+   Time                   Mon Nov 04 22:43:31 UTC 2024
    Common Schema          [PDS4_PDS_1K00.xsd]
    Common Schematron      [PDS4_PDS_1K00.sch]
    IM Version Id:         1.20.0.0
@@ -15,7 +15,6 @@ Configuration:
    IM Label Version Id:   1.26
    IM Object Model        [UpperModel.pont]
    IM Data Dictionary     [dd11179.pins]
-   IM Configuration File  [MDPTNConfigClassDisp.xml]
    IM Glossary            [Glossary.pins]
    IM Document Spec       [DMDocument.pins]
 
@@ -30,8 +29,8 @@ Parameters:
 
 Summary:
    Classes                1
-   Attributes             13
-   Associations           13
+   Attributes             17
+   Associations           17
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -40,7 +39,7 @@ Detailed validation messages
 
 Parsed Input - Header:
    LDD Name               MGN
-   LDD Version            1.0.0.0
+   LDD Version            1.1.0.0
    Full Name              Jenn Ward
    Steward                geo
    Namespace Id           mgn
@@ -48,20 +47,38 @@ Parsed Input - Header:
         The MGN dictionary contains classes that describe aspects of the 
         Magellan mission and related instruments.
         
-        MGN version 1.0.0.0
-        PDS Build 1.20.0.0 (1K00)
-        LDDTool version 14.2.4
+        MGN version 1.1.0.0
+        PDS Build 1.22.0.0 (1M00)
+        LDDTool version 15.1.0
         
-        Created with lddtool -plJ -V 1K00 PDS4_MGN_IngestLDD.xml
-        
-        Added new mission phases for mapping cycles
-        Added P-MIDR for polar MIDRs
-        Renamed pds_volume_id to original_pds_volume_id
+        Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
     
    Last Modification Time 2023-09-26Z
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
+
+   name                   organization_id
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The organization that produced the data. 
+
+   name                   dsn_station_number
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description             The number of the DSN antenna used to collect the data. 
+   minimum value          0
+   maximum value          99
+
+   name                   band_name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The name of the radio band in which the signal was received. 
+
+   name                   received_polarization_type
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The radio polarization of the receiving antenna and feed. 
 
    name                   mapping_cycle
    version                1.20
@@ -147,6 +164,26 @@ Parsed Input - Classes:
    subclass of            USER
 
    Associations
+
+      local identifier      mgn:band_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:dsn_station_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:organization_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:received_polarization_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
 
       local identifier      mgn:product_type
       minimum occurrences   1

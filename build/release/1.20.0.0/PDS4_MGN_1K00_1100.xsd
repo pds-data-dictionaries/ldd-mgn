@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mgn  Version:1.0.0.0 - Fri Oct 06 17:00:53 UTC 2023 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mgn  Version:1.1.0.0 - Mon Nov 04 22:43:31 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
-  <!-- 1.0.0.0 - mgn: - MGN                                                      -->
+  <!-- 1.1.0.0 - mgn: - MGN                                                      -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/mgn/v1"
@@ -13,7 +13,7 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.0.0.0">
+    version="1.1.0.0">
  
     <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
  
@@ -23,15 +23,11 @@
         The MGN dictionary contains classes that describe aspects of the 
         Magellan mission and related instruments.
         
-        MGN version 1.0.0.0
-        PDS Build 1.20.0.0 (1K00)
-        LDDTool version 14.2.4
+        MGN version 1.1.0.0
+        PDS Build 1.22.0.0 (1M00)
+        LDDTool version 15.1.0
         
-        Created with lddtool -plJ -V 1K00 PDS4_MGN_IngestLDD.xml
-        
-        Added new mission phases for mapping cycles
-        Added P-MIDR for polar MIDRs
-        Renamed pds_volume_id to original_pds_volume_id
+        Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
     
     </xs:documentation>
   </xs:annotation>
@@ -44,6 +40,10 @@
         for mission-specific metadata elements.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="band_name" type="mgn:band_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dsn_station_number" type="mgn:dsn_station_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="organization_id" type="mgn:organization_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="received_polarization_type" type="mgn:received_polarization_type" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="product_type" type="mgn:product_type" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="product_version_id" type="mgn:product_version_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="mapping_cycle" type="mgn:mapping_cycle" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -59,6 +59,9 @@
       <xs:element name="original_pds_volume_id" type="mgn:original_pds_volume_id" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mgn:band_name = ('S', 'X')"/> -->
+    <!-- <xs:assert test="mgn:organization_id = ('SUE')"/> -->
+    <!-- <xs:assert test="mgn:received_polarization_type = ('left circular', 'right circular')"/> -->
     <!-- <xs:assert test="mgn:product_type = ('ARCDR', 'BSR', 'C-BIDR', 'C1-MIDR', 'C2-MIDR', 'C3-MIDR', 'F-BIDR', 'F-MIDR', 'GEDR', 'GREDR', 'GSDR', 'GTDR', 'GVDR', 'GXDR', 'LOSAPDR', 'P-MIDR', 'SCVDR', 'SHXDR')"/> -->
     <!-- <xs:assert test="mgn:mission_phase_name = ('Aerobraking', 'Mapping Cycle 1', 'Mapping Cycle 2', 'Mapping Cycle 3', 'Mapping Cycle 4', 'Mapping Cycle 5', 'Mapping Cycle 6', 'Primary Mission')"/> -->
     <!-- <xs:assert test="mgn:radar_look_direction = ('Left', 'Maxwell', 'Mixed', 'Right', 'Stereo')"/> -->
@@ -72,6 +75,29 @@
         common namespace.
       </xs:documentation>
     </xs:annotation>
+
+  <xs:simpleType name="band_name">
+    <xs:annotation>
+      <xs:documentation> The name of the radio band in which the signal
+        was received. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dsn_station_number">
+    <xs:annotation>
+      <xs:documentation> The number of the DSN antenna used to collect
+        the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="99"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="mapping_cycle">
     <xs:annotation>
@@ -107,6 +133,17 @@
     	<xs:pattern value='[0-9]+'/>
      <xs:minInclusive value="1"/>
      <xs:maxInclusive value="20000"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="organization_id">
+    <xs:annotation>
+      <xs:documentation> The organization that produced the data.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -166,6 +203,17 @@
         Left or Right. Stereo indicates left looking with an incidence
         angle for stereo measurements. Maxwell is a special case for
         observing the Maxwell feature. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="received_polarization_type">
+    <xs:annotation>
+      <xs:documentation> The radio polarization of the receiving antenna
+        and feed. </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
