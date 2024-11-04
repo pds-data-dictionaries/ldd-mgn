@@ -27,7 +27,7 @@ Jennifer Ward (@jennifergward) [PDS Geosciences Node](https://pds-geosciences.wu
 does not, edit the sentence and link accordingly. -->
 The User's Guide and detailed documentation for using this dictionary in
 label design and processing
-are located at https://pds-data-dictionaries.github.io/ldd-mgn (TBD).
+are located at https://pds-data-dictionaries.github.io/ldd-mgn.
 <!-- EXAMPLE
      are located at https://pds-data-dictionaries.github.io/ldd-template.
 -->
