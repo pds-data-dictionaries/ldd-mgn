@@ -83,7 +83,7 @@ See the [schematic](../../MGN_LDD_diagram.png) for a visual representation of th
 Below is a list showing the hierarchy of classes in order of appearance in the PDS4 label.  
 See the Definitions section for complete definitions.  
   
-- [Magellan_Parameters class](#mag-param)  
+- [Magellan_Parameters class](#magellan_parameters)  
   
 Below are lists showing the hierarchy of class attributes in order of appearance in the PDS4 label.  
 See the Definitions section for complete definitions.  
@@ -107,7 +107,7 @@ See the Definitions section for complete definitions.
 # Definitions  
 ## Classes (in alphabetical order)  
   
-<h4 id="mag-param">*Magellan_Parameters*</h4>  
+### Magellan_Parameters
 The Magellan_Parameters class is the container for mission-specific metadata elements.  
 - Minimum occurrences: 1  
 - Maximum occurrences: 1  
