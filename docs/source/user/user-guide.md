@@ -88,7 +88,7 @@ See the Definitions section for complete definitions.
 Below are lists showing the hierarchy of class attributes in order of appearance in the PDS4 label.  
 See the Definitions section for complete definitions.  
   
-## [Magellan_Parameters (attributes)](#magellan_parameters)  
+## [Magellan_Parameters](#magellan_parameters) (attributes)  
   
 - product_type  
 - product_version_id  
