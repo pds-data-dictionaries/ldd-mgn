@@ -88,7 +88,7 @@ See the Definitions section for complete definitions.
 Below are lists showing the hierarchy of class attributes in order of appearance in the PDS4 label.  
 See the Definitions section for complete definitions.  
   
-## [Magellan_Parameters](#magellan_parameters)  
+## [Magellan_Parameters](#magellan_parameters--)  
   
 - product_type  
 - product_version_id  
@@ -107,7 +107,7 @@ See the Definitions section for complete definitions.
 # Definitions  
 ## Classes (in alphabetical order)  
   
-### Magellan_Parameters
+### Magellan_Parameters  
 The Magellan_Parameters class is the container for mission-specific metadata elements.  
 - Minimum occurrences: 1  
 - Maximum occurrences: 1  
