@@ -92,7 +92,7 @@ See the Definitions section for complete definitions.
   
 - product_type  
 - product_version_id  
-- mapping_cycle  
+- [mapping_cycle](#mapping-cycle)  
 - orbit_number  
 - start_orbit_number  
 - stop_orbit_number  
@@ -113,7 +113,7 @@ The Magellan_Parameters class is the container for mission-specific metadata ele
 - Maximum occurrences: 1  
   
 ## Attributes (in alphabetical order)  
-*band_name*  
+### *band_name*  
  The name of the radio band in which the signal was received.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
@@ -125,7 +125,7 @@ The Magellan_Parameters class is the container for mission-specific metadata ele
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*dsn_station_number*  
+### *dsn_station_number*  
  The number of the DSN antenna used to collect the data.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
@@ -135,7 +135,7 @@ The Magellan_Parameters class is the container for mission-specific metadata ele
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*mapping_cycle*  
+### *mapping_cycle*  
 The mapping cycle in which the data were acquired. Should be 1 to 6.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
