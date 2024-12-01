@@ -92,7 +92,7 @@ See the Definitions section for complete definitions.
   
 - product_type  
 - product_version_id  
-- [mapping_cycle](#mapping-cycle)  
+- [mapping_cycle](#*mapping-cycle*)  
 - orbit_number  
 - start_orbit_number  
 - stop_orbit_number  
