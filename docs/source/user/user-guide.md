@@ -1,6 +1,7 @@
 PDS4 Magellan Mission Dictionary User's Guide  
 2023-10-06 Jennifer Ward  
 2024-12-01 Ethan I. Schaefer  
+2024-12-01 Ethan I. Schaefer  
   
 # Introduction  
    1. Purpose of this User's Guide  
@@ -78,11 +79,14 @@ The following is an example showing the location of the Magellan dictionary clas
 The namespace for the Magellan Mission Dictionary is http://pds.nasa.gov/pds4/mission/mgn/v1, abbreviated "mgn:".  
   
 # Organization of Classes and Attributes  
+  
 ## Class Organization  
 Below is a structured list showing the organization of classes, ordered by appearance in the PDS4 label. Each class name is linked to its complete definition in the [Definitions](#definitions) section.  
 - [Magellan_Parameters](#magellan_parameters)  
+  
 ## Attributes by Class  
 Each class with attributes is listed below. Both classes and attributes are ordered by appearance in the PDS4 label. Each class and attribute name is linked to its complete definition in the [Definitions](#definitions) section.  
+  
 ### [Magellan_Parameters](#magellan_parameters) (attributes)  
 - [band_name](#band_name)  
 - [dsn_station_number](#dsn_station_number)  
@@ -101,8 +105,11 @@ Each class with attributes is listed below. Both classes and attributes are orde
 - [spacecraft_clock_stop_count](#spacecraft_clock_stop_count)  
 - [producer_institution_name](#producer_institution_name)  
 - [original_pds_volume_id](#original_pds_volume_id)  
+  
 # Definitions  
+  
 ## Classes (in alphabetical order)  
+  
 ### Magellan_Parameters  
 The Magellan_Parameters class is the container for mission-specific metadata elements.  
 - [attribute list](#magellan_parameters-attributes)  
@@ -110,8 +117,9 @@ The Magellan_Parameters class is the container for mission-specific metadata ele
 - Maximum occurrences: 1  
   
 ## Attributes (in alphabetical order)  
+  
 ### *band_name*  
- The name of the radio band in which the signal was received.  
+The name of the radio band in which the signal was received.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
   - S  
@@ -123,7 +131,7 @@ The Magellan_Parameters class is the container for mission-specific metadata ele
 - Nillable: No  
   
 ### *dsn_station_number*  
- The number of the DSN antenna used to collect the data.  
+The number of the DSN antenna used to collect the data.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
 - Minimum value: 0  
@@ -143,7 +151,7 @@ The mapping cycle in which the data were acquired. Should be 1 to 6.
 - Nillable: No  
   
 ### *mission_phase_name*  
- The mission_phase_name attribute provides the mission-defined name of a time period within the mission.  
+The mission_phase_name attribute provides the mission-defined name of a time period within the mission.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
   - Mapping Cycle 1  
@@ -215,7 +223,7 @@ The orbit_number attribute identifies the number of the orbital revolution aroun
 - Nillable: No  
   
 ### *organization_id*  
- The organization that produced the data.  
+The organization that produced the data.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
   - SUE  
@@ -295,7 +303,7 @@ The product_version_id attribute identifies the version of an individual data pr
 - Nillable: No  
   
 ### *radar_look_direction*  
- The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature.  
+The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
   - Left  
@@ -313,7 +321,7 @@ The product_version_id attribute identifies the version of an individual data pr
 - Nillable: No  
   
 ### *received_polarization_type*  
- The radio polarization of the receiving antenna and feed.  
+The radio polarization of the receiving antenna and feed.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
   - right circular  
@@ -386,6 +394,19 @@ Example PDS4 label snippet for a Magellan F-MIDR data product:
     </Mission_Area>
 
 ```  
+Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194b:  
+```
+<Mission_Area>
+  <mgn:Magellan_Parameters>
+    <mgn:band_name>S</mgn:band_name>
+    <mgn:dsn_station_number>63</mgn:dsn_station_number>
+    <mgn:organization_id>SUE</mgn:organization_id>
+    <mgn:received_polarization_type>right circular</mgn:received_polarization_type>
+    <mgn:product_type>BSR</mgn:product_type>
+  </mgn:Magellan_Parameters>
+</Mission_Area>
+```  
+  
 Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194b:  
 ```
 <Mission_Area>
