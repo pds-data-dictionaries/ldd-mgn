@@ -1,6 +1,7 @@
 PDS4 Magellan Mission Dictionary User's Guide  
 2023-10-06 Jennifer Ward  
 2024-11-27 Ethan I. Schaefer  
+2024-12-01 Ethan I. Schaefer  
 # Introduction  
    1. Purpose of this User's Guide  
    - This User's Guide provides an overview of the Magellan Mission Data Dictionary. It details how to include the dictionary in a PDS4 label, describes the organization of classes and attributes, provides definitions of the classes and attributes, and lists examples of labels that use it.  
@@ -36,12 +37,12 @@ The following is an example showing the use of this dictionary in a PDS4 label.
 ```
    <?xml version="1.0" encoding="UTF-8"?>
    <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-   <?xml-model href="https://pds.nasa.gov/pds4/mission/mgn/v1/PDS4_MGN_1K00_1000.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+   <?xml-model href="https://pds.nasa.gov/pds4/mission/mgn/v1/PDS4_MGN_1M00_1100.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
    <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
        xmlns:mgn="http://pds.nasa.gov/pds4/mission/mgn/v1"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1           https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd
-                           http://pds.nasa.gov/pds4/mission/mgn/v1   https://pds.nasa.gov/pds4/mission/mgn/v1/PDS4_MGN_1K00_1000.xsd">
+                           http://pds.nasa.gov/pds4/mission/mgn/v1   https://pds.nasa.gov/pds4/mission/mgn/v1/PDS4_MGN_1M00_1100.xsd">
 ```  
   
 The following is an example showing the location of the Magellan dictionary classes and attributes in a PDS4 label.  
@@ -51,23 +52,23 @@ The following is an example showing the location of the Magellan dictionary clas
   ...
   <Mission_Area>
     <mgn:Magellan_Parameters>
-      <mgnband_name>
-      <mgndsn_station_number>
-      <mgnorganization_id>
-      <mgnreceived_polarization_type>
-      <mgnproduct_type>
-      <mgnproduct_version_id>
-      <mgnmapping_cycle>
-      <mgnorbit_number>
-      <mgnstart_orbit_number>
-      <mgnstop_orbit_number>
-      <mgnmission_phase_name>
-      <mgnradar_look_direction>
-      <mgnspacecraft_clock_count_partition>
-      <mgnspacecraft_clock_start_count>
-      <mgnspacecraft_clock_stop_count>
-      <mgnproducer_institution_name>
-      <mgnoriginal_pds_volume_id>
+      <mgn:band_name/>
+      <mgn:dsn_station_number/>
+      <mgn:organization_id/>
+      <mgn:received_polarization_type/>
+      <mgn:product_type/>
+      <mgn:product_version_id/>
+      <mgn:mapping_cycle/>
+      <mgn:orbit_number/>
+      <mgn:start_orbit_number/>
+      <mgn:stop_orbit_number/>
+      <mgn:mission_phase_name/>
+      <mgn:radar_look_direction/>
+      <mgn:spacecraft_clock_count_partition/>
+      <mgn:spacecraft_clock_start_count/>
+      <mgn:spacecraft_clock_stop_count/>
+      <mgn:producer_institution_name/>
+      <mgn:original_pds_volume_id/>
     </mgn:Magellan_Parameters>
   </Mission_Area>
   ...
@@ -77,38 +78,36 @@ The following is an example showing the location of the Magellan dictionary clas
 The namespace for the Magellan Mission Dictionary is http://pds.nasa.gov/pds4/mission/mgn/v1, abbreviated "mgn:".  
   
 # Organization of Classes and Attributes  
-  
-See the [schematic](../../MGN_LDD_diagram.png) for a visual representation of the classes and attributes (not yet available).  
-  
-Below is a list showing the hierarchy of classes in order of appearance in the PDS4 label.  
-See the Definitions section for complete definitions.  
-  
-- [Magellan_Parameters](#magellan_parameters-attributes)  
-  
-Below are lists showing the hierarchy of class attributes in order of appearance in the PDS4 label.  
-See the Definitions section for complete definitions.  
-  
-## [Magellan_Parameters](#magellan_parameters) (attributes)  
-  
-- product_type  
-- product_version_id  
+## Class Organization  
+Below is a structured list showing the organization of classes in order of appearance in the PDS4 label.  
+See the [Definitions](#definitions) section for complete definitions.  
+- [Magellan_Parameters](#magellan_parameters)  
+## Attributes by Class  
+Each class with attributes is listed below. Both classes and attributes are ordered by appearance in the PDS4 label.  
+See the [Definitions](#definitions) section for complete definitions.  
+### [Magellan_Parameters](#magellan_parameters) (attributes)  
+- [band_name](#band_name)  
+- [dsn_station_number](#dsn_station_number)  
+- [organization_id](#organization_id)  
+- [received_polarization_type](#received_polarization_type)  
+- [product_type](#product_type)  
+- [product_version_id](#product_version_id)  
 - [mapping_cycle](#mapping_cycle)  
-- orbit_number  
-- start_orbit_number  
-- stop_orbit_number  
-- mission_phase_name  
-- radar_look_direction  
-- spacecraft_clock_count_partition  
-- spacecraft_clock_start_count  
-- spacecraft_clock_stop_count  
-- producer_institution_name  
-- original_pds3_volume_id  
-  
+- [orbit_number](#orbit_number)  
+- [start_orbit_number](#start_orbit_number)  
+- [stop_orbit_number](#stop_orbit_number)  
+- [mission_phase_name](#mission_phase_name)  
+- [radar_look_direction](#radar_look_direction)  
+- [spacecraft_clock_count_partition](#spacecraft_clock_count_partition)  
+- [spacecraft_clock_start_count](#spacecraft_clock_start_count)  
+- [spacecraft_clock_stop_count](#spacecraft_clock_stop_count)  
+- [producer_institution_name](#producer_institution_name)  
+- [original_pds_volume_id](#original_pds_volume_id)  
 # Definitions  
 ## Classes (in alphabetical order)  
-  
 ### Magellan_Parameters  
 The Magellan_Parameters class is the container for mission-specific metadata elements.  
+- [go to attributes](#magellan_parameters-attributes)  
 - Minimum occurrences: 1  
 - Maximum occurrences: 1  
   
@@ -145,7 +144,7 @@ The mapping cycle in which the data were acquired. Should be 1 to 6.
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*mission_phase_name*  
+### *mission_phase_name*  
  The mission_phase_name attribute provides the mission-defined name of a time period within the mission.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
@@ -207,7 +206,7 @@ The mapping cycle in which the data were acquired. Should be 1 to 6.
 - Maximum occurrences: unbounded  
 - Nillable: No  
   
-*orbit_number*  
+### *orbit_number*  
 The orbit_number attribute identifies the number of the orbital revolution around a target body.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
@@ -217,7 +216,7 @@ The orbit_number attribute identifies the number of the orbital revolution aroun
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*organization_id*  
+### *organization_id*  
  The organization that produced the data.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
@@ -228,7 +227,7 @@ The orbit_number attribute identifies the number of the orbital revolution aroun
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*original_pds_volume_id*  
+### *original_pds_volume_id*  
 The original PDS volume_id of where the Magellan data are located.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values: N/A  
@@ -236,7 +235,7 @@ The original PDS volume_id of where the Magellan data are located.
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*producer_institution_name*  
+### *producer_institution_name*  
 The producer_institution_name attribute identifies a university, research center, NASA center, or other institution associated with the production of a data product.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values: N/A  
@@ -244,7 +243,7 @@ The producer_institution_name attribute identifies a university, research center
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*product_type*  
+### *product_type*  
 The product_type attribute indicates the type of data for an individual data product. The values are based on the values used by the Magellan project for their delivery to PDS.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
@@ -289,7 +288,7 @@ The product_type attribute indicates the type of data for an individual data pro
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*product_version_id*  
+### *product_version_id*  
 The product_version_id attribute identifies the version of an individual data product.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values: N/A  
@@ -297,7 +296,7 @@ The product_version_id attribute identifies the version of an individual data pr
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*radar_look_direction*  
+### *radar_look_direction*  
  The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
@@ -315,7 +314,7 @@ The product_version_id attribute identifies the version of an individual data pr
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*received_polarization_type*  
+### *received_polarization_type*  
  The radio polarization of the receiving antenna and feed.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values:  
@@ -327,7 +326,7 @@ The product_version_id attribute identifies the version of an individual data pr
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*spacecraft_clock_count_partition*  
+### *spacecraft_clock_count_partition*  
 The spacecraft_clock_count_partition attribute indicates the clock partition active for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
@@ -335,7 +334,7 @@ The spacecraft_clock_count_partition attribute indicates the clock partition act
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*spacecraft_clock_start_count*  
+### *spacecraft_clock_start_count*  
 The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values: N/A  
@@ -343,7 +342,7 @@ The spacecraft_clock_start_count attribute provides the value of the spacecraft 
 - Maximum occurrences: 1  
 - Nillable: Yes  
   
-*spacecraft_clock_stop_count*  
+### *spacecraft_clock_stop_count*  
 The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest.  
 - PDS4 data type: ASCII_Short_String_Collapsed  
 - Valid values: N/A  
@@ -351,7 +350,7 @@ The spacecraft_clock_stop_count attribute provides the value of the spacecraft c
 - Maximum occurrences: 1  
 - Nillable: Yes  
   
-*start_orbit_number*  
+### *start_orbit_number*  
 Provides the the lowest revolution orbit number that contributed data to a given data product.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
@@ -361,7 +360,7 @@ Provides the the lowest revolution orbit number that contributed data to a given
 - Maximum occurrences: 1  
 - Nillable: No  
   
-*stop_orbit_number*  
+### *stop_orbit_number*  
 Provides the the highest revolution orbit number that contributed data to a given data product.  
 - PDS4 data type: ASCII_NonNegative_Integer  
 - Valid values: N/A  
@@ -399,5 +398,25 @@ Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194
     <mgn:received_polarization_type>right circular</mgn:received_polarization_type>
     <mgn:product_type>BSR</mgn:product_type>
   </mgn:Magellan_Parameters>
+</Mission_Area>
+```  
+Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194b:  
+```
+<Mission_Area>
+
+  <mgn:Magellan_Parameters>
+
+    <mgn:band_name>S</mgn:band_name>
+
+    <mgn:dsn_station_number>63</mgn:dsn_station_number>
+
+    <mgn:organization_id>SUE</mgn:organization_id>
+
+    <mgn:received_polarization_type>right circular</mgn:received_polarization_type>
+
+    <mgn:product_type>BSR</mgn:product_type>
+
+  </mgn:Magellan_Parameters>
+
 </Mission_Area>
 ```  
