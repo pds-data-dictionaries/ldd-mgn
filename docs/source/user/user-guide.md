@@ -1,24 +1,21 @@
 PDS4 Magellan Mission Dictionary User's Guide  
 2023-10-06 Jennifer Ward  
-2024-12-01 Ethan I. Schaefer  
-2024-12-01 Ethan I. Schaefer  
+2024-12-03 Ethan I. Schaefer  
   
 # Introduction  
-   1. Purpose of this User's Guide  
-   - This User's Guide provides an overview of the Magellan Mission Data Dictionary. It details how to include the dictionary in a PDS4 label, describes the organization of classes and attributes, provides definitions of the classes and attributes, and lists examples of labels that use it.  
-   2. Audience  
-   - This User's Guide should be useful to data providers intending to archive Magellan data with PDS as well as PDS Nodes who are working with these data providers.  
+1. Purpose of this User's Guide  
+    - This User's Guide provides an overview of the Magellan Mission Data Dictionary. It details how to include the dictionary in a PDS4 label, describes the organization of classes and attributes, provides definitions of the classes and attributes, and lists examples of labels that use it.  
+2. Audience  
+    - This User's Guide should be useful to data providers intending to archive Magellan data with PDS as well as PDS Nodes who are working with these data providers.  
   
 # Overview of the Magellan Mission Data Dictionary  
-  
 The Magellan Mission Data Dictionary contains classes and attributes specific to the Magellan mission and its instruments.  
 Steward: Jennifer Ward, PDS Geosciences Node, geosci@wunder.wustl.edu  
   
 # How to Include the Magellan Mission Data Dictionary in a PDS4 Label  
-  
 The dictionary consists of a set of files with names in the form PDS4_MGN_xxxx_yyyy.ext, where  
 - xxxx = the PDS4 Information Model version, e.g. 1M00  
-- yyyy = the MGN Mission Dictionary version, e.g. 1100  
+- yyyy = the Magellan Mission Dictionary version, e.g. 1100  
   
 and the file extensions are  
   
@@ -42,8 +39,8 @@ The following is an example showing the use of this dictionary in a PDS4 label.
    <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
        xmlns:mgn="http://pds.nasa.gov/pds4/mission/mgn/v1"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1           https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd
-                           http://pds.nasa.gov/pds4/mission/mgn/v1   https://pds.nasa.gov/pds4/mission/mgn/v1/PDS4_MGN_1M00_1100.xsd">
+       xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1  https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd
+                           http://pds.nasa.gov/pds4/mission/mgn/v1  https://pds.nasa.gov/pds4/mission/mgn/v1/PDS4_MGN_1M00_1100.xsd">
 ```  
   
 The following is an example showing the location of the Magellan dictionary classes and attributes in a PDS4 label.  
@@ -377,9 +374,7 @@ Provides the the highest revolution orbit number that contributed data to a give
 - Nillable: No  
   
 # Examples  
-  
 Example PDS4 label snippet for a Magellan F-MIDR data product:  
-  
 ```
 
     <Mission_Area>
@@ -393,18 +388,6 @@ Example PDS4 label snippet for a Magellan F-MIDR data product:
       </mgn:Magellan_Parameters>
     </Mission_Area>
 
-```  
-Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194b:  
-```
-<Mission_Area>
-  <mgn:Magellan_Parameters>
-    <mgn:band_name>S</mgn:band_name>
-    <mgn:dsn_station_number>63</mgn:dsn_station_number>
-    <mgn:organization_id>SUE</mgn:organization_id>
-    <mgn:received_polarization_type>right circular</mgn:received_polarization_type>
-    <mgn:product_type>BSR</mgn:product_type>
-  </mgn:Magellan_Parameters>
-</Mission_Area>
 ```  
   
 Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194b:  
