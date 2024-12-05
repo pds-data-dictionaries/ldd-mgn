@@ -1,6 +1,6 @@
 PDS4 Magellan Mission Dictionary User's Guide  
 2023-10-06 Jennifer Ward  
-2024-12-03 Ethan I. Schaefer  
+2024-12-04 Ethan I. Schaefer  
   
 # Introduction  
 1. Purpose of this User's Guide  
@@ -50,10 +50,6 @@ The following is an example showing the location of the Magellan dictionary clas
   ...
   <Mission_Area>
     <mgn:Magellan_Parameters>
-      <mgn:band_name/>
-      <mgn:dsn_station_number/>
-      <mgn:organization_id/>
-      <mgn:received_polarization_type/>
       <mgn:product_type/>
       <mgn:product_version_id/>
       <mgn:mapping_cycle/>
@@ -65,6 +61,10 @@ The following is an example showing the location of the Magellan dictionary clas
       <mgn:spacecraft_clock_count_partition/>
       <mgn:spacecraft_clock_start_count/>
       <mgn:spacecraft_clock_stop_count/>
+      <mgn:band_name/>
+      <mgn:received_polarization_type/>
+      <mgn:dsn_station_number/>
+      <mgn:organization_id/>
       <mgn:producer_institution_name/>
       <mgn:original_pds_volume_id/>
     </mgn:Magellan_Parameters>
@@ -85,10 +85,6 @@ Below is a structured list showing the organization of classes, ordered by appea
 Each class with attributes is listed below. Both classes and attributes are ordered by appearance in the PDS4 label. Each class and attribute name is linked to its complete definition in the [Definitions](#definitions) section.  
   
 ### [Magellan_Parameters](#magellan_parameters) (attributes)  
-- [band_name](#band_name)  
-- [dsn_station_number](#dsn_station_number)  
-- [organization_id](#organization_id)  
-- [received_polarization_type](#received_polarization_type)  
 - [product_type](#product_type)  
 - [product_version_id](#product_version_id)  
 - [mapping_cycle](#mapping_cycle)  
@@ -100,6 +96,10 @@ Each class with attributes is listed below. Both classes and attributes are orde
 - [spacecraft_clock_count_partition](#spacecraft_clock_count_partition)  
 - [spacecraft_clock_start_count](#spacecraft_clock_start_count)  
 - [spacecraft_clock_stop_count](#spacecraft_clock_stop_count)  
+- [band_name](#band_name)  
+- [received_polarization_type](#received_polarization_type)  
+- [dsn_station_number](#dsn_station_number)  
+- [organization_id](#organization_id)  
 - [producer_institution_name](#producer_institution_name)  
 - [original_pds_volume_id](#original_pds_volume_id)  
   
@@ -394,11 +394,11 @@ Example PDS4 label snippet from urn:nasa:pds:magellan_bsr_calibrated:prt:4156194
 ```
 <Mission_Area>
   <mgn:Magellan_Parameters>
+    <mgn:product_type>BSR</mgn:product_type>
     <mgn:band_name>S</mgn:band_name>
+    <mgn:received_polarization_type>right circular</mgn:received_polarization_type>
     <mgn:dsn_station_number>63</mgn:dsn_station_number>
     <mgn:organization_id>SUE</mgn:organization_id>
-    <mgn:received_polarization_type>right circular</mgn:received_polarization_type>
-    <mgn:product_type>BSR</mgn:product_type>
   </mgn:Magellan_Parameters>
 </Mission_Area>
 ```  
