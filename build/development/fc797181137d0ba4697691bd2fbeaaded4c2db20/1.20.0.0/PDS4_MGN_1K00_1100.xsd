@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mgn  Version:1.1.0.0 - Tue Dec 03 10:26:35 UTC 2024 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mgn  Version:1.1.0.0 - Thu Dec 05 03:34:51 UTC 2024 -->
   <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -40,10 +40,6 @@
         for mission-specific metadata elements.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="band_name" type="mgn:band_name" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="dsn_station_number" type="mgn:dsn_station_number" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="organization_id" type="mgn:organization_id" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="received_polarization_type" type="mgn:received_polarization_type" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="product_type" type="mgn:product_type" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="product_version_id" type="mgn:product_version_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="mapping_cycle" type="mgn:mapping_cycle" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -55,16 +51,20 @@
       <xs:element name="spacecraft_clock_count_partition" type="mgn:spacecraft_clock_count_partition" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_start_count" nillable="true" type="mgn:spacecraft_clock_start_count" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_stop_count" nillable="true" type="mgn:spacecraft_clock_stop_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="band_name" type="mgn:band_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="received_polarization_type" type="mgn:received_polarization_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="dsn_station_number" type="mgn:dsn_station_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="organization_id" type="mgn:organization_id" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="producer_institution_name" type="mgn:producer_institution_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="original_pds_volume_id" type="mgn:original_pds_volume_id" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="mgn:band_name = ('S', 'X')"/> -->
-    <!-- <xs:assert test="mgn:organization_id = ('SUE')"/> -->
-    <!-- <xs:assert test="mgn:received_polarization_type = ('left circular', 'right circular')"/> -->
     <!-- <xs:assert test="mgn:product_type = ('ARCDR', 'BSR', 'C-BIDR', 'C1-MIDR', 'C2-MIDR', 'C3-MIDR', 'F-BIDR', 'F-MIDR', 'GEDR', 'GREDR', 'GSDR', 'GTDR', 'GVDR', 'GXDR', 'LOSAPDR', 'P-MIDR', 'SCVDR', 'SHXDR')"/> -->
     <!-- <xs:assert test="mgn:mission_phase_name = ('Aerobraking', 'Mapping Cycle 1', 'Mapping Cycle 2', 'Mapping Cycle 3', 'Mapping Cycle 4', 'Mapping Cycle 5', 'Mapping Cycle 6', 'Primary Mission')"/> -->
     <!-- <xs:assert test="mgn:radar_look_direction = ('Left', 'Maxwell', 'Mixed', 'Right', 'Stereo')"/> -->
+    <!-- <xs:assert test="mgn:band_name = ('S', 'X')"/> -->
+    <!-- <xs:assert test="mgn:received_polarization_type = ('left circular', 'right circular')"/> -->
+    <!-- <xs:assert test="mgn:organization_id = ('SUE')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 

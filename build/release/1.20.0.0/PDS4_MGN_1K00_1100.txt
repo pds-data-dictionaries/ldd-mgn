@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Dec 03 10:26:35 UTC 2024
+   Time                   Thu Dec 05 03:34:51 UTC 2024
    Common Schema          [PDS4_PDS_1K00.xsd]
    Common Schematron      [PDS4_PDS_1K00.sch]
    IM Version Id:         1.20.0.0
@@ -53,15 +53,15 @@ Parsed Input - Header:
         
         Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
     
-   Last Modification Time 2024-11-04
+   Last Modification Time 2023-09-26Z
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
 
-   name                   organization_id
+   name                   band_name
    version                1.20
    value data type        ASCII_Short_String_Collapsed
-   description             The organization that produced the data. 
+   description             The name of the radio band in which the signal was received. 
 
    name                   dsn_station_number
    version                1.20
@@ -69,16 +69,6 @@ Parsed Input - Attributes:
    description             The number of the DSN antenna used to collect the data. 
    minimum value          0
    maximum value          99
-
-   name                   band_name
-   version                1.20
-   value data type        ASCII_Short_String_Collapsed
-   description             The name of the radio band in which the signal was received. 
-
-   name                   received_polarization_type
-   version                1.20
-   value data type        ASCII_Short_String_Collapsed
-   description             The radio polarization of the receiving antenna and feed. 
 
    name                   mapping_cycle
    version                1.20
@@ -91,6 +81,11 @@ Parsed Input - Attributes:
    version                1.20
    value data type        ASCII_Short_String_Collapsed
    description             The mission_phase_name attribute provides the mission-defined name of a time period within the mission. 
+
+   name                   organization_id
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The organization that produced the data. 
 
    name                   orbit_number
    version                1.20
@@ -123,6 +118,11 @@ Parsed Input - Attributes:
    version                1.20
    value data type        ASCII_Short_String_Collapsed
    description             The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature. 
+
+   name                   received_polarization_type
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The radio polarization of the receiving antenna and feed. 
 
    name                   spacecraft_clock_count_partition
    version                1.20
@@ -164,26 +164,6 @@ Parsed Input - Classes:
    subclass of            USER
 
    Associations
-
-      local identifier      mgn:band_name
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      mgn:dsn_station_number
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      mgn:organization_id
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
-
-      local identifier      mgn:received_polarization_type
-      minimum occurrences   0
-      maximum occurrences   1
-      reference type        attribute_of
 
       local identifier      mgn:product_type
       minimum occurrences   1
@@ -236,6 +216,26 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      mgn:spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:band_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:received_polarization_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:dsn_station_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:organization_id
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
