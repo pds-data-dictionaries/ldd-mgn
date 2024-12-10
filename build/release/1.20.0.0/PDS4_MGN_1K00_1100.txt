@@ -1,0 +1,253 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.2.3
+   LDD Version Id:        1.1.0.0
+   LDD Label Version Id:  1.26
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Thu Dec 05 03:40:37 UTC 2024
+   Common Schema          [PDS4_PDS_1K00.xsd]
+   Common Schematron      [PDS4_PDS_1K00.sch]
+   IM Version Id:         1.20.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.26
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-mgn/ldd-mgn/src/PDS4_MGN_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                1
+   Attributes             17
+   Associations           17
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               MGN
+   LDD Version            1.1.0.0
+   Full Name              Jenn Ward
+   Steward                geo
+   Namespace Id           mgn
+   Comment                
+        The MGN dictionary contains classes that describe aspects of the 
+        Magellan mission and related instruments.
+        
+        MGN version 1.1.0.0
+        PDS Build 1.22.0.0 (1M00)
+        LDDTool version 15.1.0
+        
+        Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
+    
+   Last Modification Time 2024-12-04
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   band_name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The name of the radio band in which the signal was received. 
+
+   name                   dsn_station_number
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description             The number of the DSN antenna used to collect the data. 
+   minimum value          0
+   maximum value          99
+
+   name                   mapping_cycle
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description            The mapping cycle in which the data were acquired. Should be 1 to 6. 
+   minimum value          1
+   maximum value          6
+
+   name                   mission_phase_name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The mission_phase_name attribute provides the mission-defined name of a time period within the mission. 
+
+   name                   organization_id
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The organization that produced the data. 
+
+   name                   orbit_number
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description            The orbit_number attribute identifies the number of the orbital revolution around a target body. 
+   minimum value          1
+   maximum value          20000
+
+   name                   original_pds_volume_id
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The original PDS volume_id of where the Magellan data are located. 
+
+   name                   producer_institution_name
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The producer_institution_name attribute identifies a university, research center, NASA center, or other institution associated with the production of a data product. 
+
+   name                   product_type
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_type attribute indicates the type of data for an individual data product. The values are based on the values used by the Magellan project for their delivery to PDS.
+
+   name                   product_version_id
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_version_id attribute identifies the version of an individual data product. 
+
+   name                   radar_look_direction
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature. 
+
+   name                   received_polarization_type
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description             The radio polarization of the receiving antenna and feed. 
+
+   name                   spacecraft_clock_count_partition
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description            The spacecraft_clock_count_partition attribute indicates the clock partition active for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes. 
+
+   name                   spacecraft_clock_start_count
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
+   nillable               true
+
+   name                   spacecraft_clock_stop_count
+   version                1.20
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. 
+   nillable               true
+
+   name                   start_orbit_number
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description            Provides the the lowest revolution orbit number that contributed data to a given data product. 
+   minimum value          1
+   maximum value          20000
+
+   name                   stop_orbit_number
+   version                1.20
+   value data type        ASCII_NonNegative_Integer
+   description            Provides the the highest revolution orbit number that contributed data to a given data product. 
+   minimum value          1
+   maximum value          20000
+
+Parsed Input - Classes:
+
+   name                   Magellan_Parameters
+   description            The Magellan_Parameters class is the container for mission-specific metadata elements.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:product_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:product_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mapping_cycle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:start_orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:stop_orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   unbounded
+      reference type        attribute_of
+
+      local identifier      mgn:radar_look_direction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:band_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:received_polarization_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:dsn_station_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:organization_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:producer_institution_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:original_pds_volume_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+End of Report
