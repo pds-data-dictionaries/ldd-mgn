@@ -1,10 +1,10 @@
 
->>  INFO LDDTOOL Version: 15.2.3
+>>  INFO LDDTOOL Version: 15.3.0
 >>  INFO IM Version Id: 1.22.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.0
->>  INFO Date: Thu Dec 05 04:08:58 UTC 2024
->>  INFO PARENT_DIR: /tmp/lddtool-15.2.3/Data/
+>>  INFO Date: Fri May 23 14:52:56 UTC 2025
+>>  INFO PARENT_DIR: /tmp/lddtool-15.3.0/Data/
 
 >>> INFO Init:  - Config.Properties Namespace Id Found:mgn
 >>> INFO Init:  - Config.Properties Namespace Id Using:mgn
