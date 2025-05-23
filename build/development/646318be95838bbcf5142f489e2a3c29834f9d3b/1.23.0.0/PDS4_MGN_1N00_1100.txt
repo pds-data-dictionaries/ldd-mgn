@@ -7,10 +7,10 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Fri May 23 14:47:19 UTC 2025
-   Common Schema          [PDS4_PDS_1M00.xsd]
-   Common Schematron      [PDS4_PDS_1M00.sch]
-   IM Version Id:         1.22.0.0
+   Time                   Fri May 23 14:52:56 UTC 2025
+   Common Schema          [PDS4_PDS_1N00.xsd]
+   Common Schematron      [PDS4_PDS_1N00.sch]
+   IM Version Id:         1.23.0.0
    IM Namespace Id:       pds
    IM Label Version Id:   1.0
    IM Object Model        [UpperModel.pont]
@@ -59,97 +59,97 @@ Parsed Input - Header:
 Parsed Input - Attributes:
 
    name                   band_name
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description             The name of the radio band in which the signal was received. 
 
    name                   dsn_station_number
-   version                1.22
+   version                1.23
    value data type        ASCII_NonNegative_Integer
    description             The number of the DSN antenna used to collect the data. 
    minimum value          0
    maximum value          99
 
    name                   mapping_cycle
-   version                1.22
+   version                1.23
    value data type        ASCII_NonNegative_Integer
    description            The mapping cycle in which the data were acquired. Should be 1 to 6. 
    minimum value          1
    maximum value          6
 
    name                   mission_phase_name
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description             The mission_phase_name attribute provides the mission-defined name of a time period within the mission. 
 
    name                   organization_id
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description             The organization that produced the data. 
 
    name                   orbit_number
-   version                1.22
+   version                1.23
    value data type        ASCII_NonNegative_Integer
    description            The orbit_number attribute identifies the number of the orbital revolution around a target body. 
    minimum value          1
    maximum value          20000
 
    name                   original_pds_volume_id
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description            The original PDS volume_id of where the Magellan data are located. 
 
    name                   producer_institution_name
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description            The producer_institution_name attribute identifies a university, research center, NASA center, or other institution associated with the production of a data product. 
 
    name                   product_type
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description            The product_type attribute indicates the type of data for an individual data product. The values are based on the values used by the Magellan project for their delivery to PDS.
 
    name                   product_version_id
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description            The product_version_id attribute identifies the version of an individual data product. 
 
    name                   radar_look_direction
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description             The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature. 
 
    name                   received_polarization_type
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description             The radio polarization of the receiving antenna and feed. 
 
    name                   spacecraft_clock_count_partition
-   version                1.22
+   version                1.23
    value data type        ASCII_NonNegative_Integer
    description            The spacecraft_clock_count_partition attribute indicates the clock partition active for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes. 
 
    name                   spacecraft_clock_start_count
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
    nillable               true
 
    name                   spacecraft_clock_stop_count
-   version                1.22
+   version                1.23
    value data type        ASCII_Short_String_Collapsed
    description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. 
    nillable               true
 
    name                   start_orbit_number
-   version                1.22
+   version                1.23
    value data type        ASCII_NonNegative_Integer
    description            Provides the the lowest revolution orbit number that contributed data to a given data product. 
    minimum value          1
    maximum value          20000
 
    name                   stop_orbit_number
-   version                1.22
+   version                1.23
    value data type        ASCII_NonNegative_Integer
    description            Provides the the highest revolution orbit number that contributed data to a given data product. 
    minimum value          1

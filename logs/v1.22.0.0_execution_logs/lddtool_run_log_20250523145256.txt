@@ -1,9 +1,9 @@
 
 >>  INFO LDDTOOL Version: 15.3.0
->>  INFO IM Version Id: 1.23.0.0
+>>  INFO IM Version Id: 1.22.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.0
->>  INFO Date: Fri May 23 14:47:16 UTC 2025
+>>  INFO Date: Fri May 23 14:52:56 UTC 2025
 >>  INFO PARENT_DIR: /tmp/lddtool-15.3.0/Data/
 
 >>> INFO Init:  - Config.Properties Namespace Id Found:mgn
@@ -15,11 +15,8 @@
 >>> INFO Attribute: <dsn_station_number> - The default maximum value provided by the attribute's data type is being overridden with 99
 >>> INFO Attribute: <mapping_cycle> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <mapping_cycle> - The default maximum value provided by the attribute's data type is being overridden with 6
->>> INFO Attribute: <mission_phase_name> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <orbit_number> - The default maximum value provided by the attribute's data type is being overridden with 20000
->>> INFO Attribute: <spacecraft_clock_start_count> - This local attribute has a duplicate in the PDS4 data dictionary.
->>> INFO Attribute: <spacecraft_clock_stop_count> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <start_orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <start_orbit_number> - The default maximum value provided by the attribute's data type is being overridden with 20000
 >>> INFO Attribute: <stop_orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 1
@@ -32,7 +29,7 @@
 
 Input:
 
-     - IM Version: 1N00
+     - IM Version: 1M00
      - PDS4 Flag: true
      - LDD Flag: true
      - IM Version: true
@@ -42,9 +39,9 @@ Input:
 
 Output:
 
-     - ./PDS4_MGN_1N00_1100.xsd
-     - ./PDS4_MGN_1N00_1100.sch
-     - ./PDS4_MGN_1N00_1100.xml
-     - ./export/PDS4_PDS_1N00.JSON
+     - ./PDS4_MGN_1M00_1100.xsd
+     - ./PDS4_MGN_1M00_1100.sch
+     - ./PDS4_MGN_1M00_1100.xml
+     - ./export/PDS4_PDS_1M00.JSON
 
 >>  INFO Exit(0)
