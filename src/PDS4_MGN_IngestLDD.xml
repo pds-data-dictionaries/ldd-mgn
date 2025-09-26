@@ -23,7 +23,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd">
     <name>MGN</name>
-    <ldd_version_id>1.1.0.0</ldd_version_id>
+    <ldd_version_id>1.2.0.0</ldd_version_id> <!-- TODO: must confirm which value to increment for F-BIDR changes -->
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jenn Ward</full_name>
     <steward_id>geo</steward_id>
@@ -39,6 +39,8 @@
         Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
     </comment>
     <last_modification_date_time>2024-12-04</last_modification_date_time>
+    
+    <!-- Beginning of attribute definitions in alphabetical order -->
 
     <DD_Attribute> <!-- band_name -->
         <name>band_name</name>
@@ -246,6 +248,74 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- projection_name -->
+        <name>projection_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>projection_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The map projection used in this product, either 'sinusoidal' or 'oblique sinusoidal'
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>sinusoidal</value>
+                <value_meaning>Non-oblique sinusoidal map projection</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>oblique sinusoidal</value>
+                <value_meaning>Oblique sinusoidal map projection</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- projection_origin_lat -->
+        <name>projection_origin_lat</name>
+        <version_id>1.0</version_id>
+        <local_identifier>projection_origin_lat</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Latitude of the map projection's origin, in degrees
+        </definition>
+        <!-- TODO: needs min/max! -->
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- projection_origin_lon -->
+        <name>projection_origin_lon</name>
+        <version_id>1.0</version_id>
+        <local_identifier>projection_origin_lon</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Longitude of the map projection's origin, in degrees (0 to 360)
+        </definition>
+        <!-- TODO: needs min/max! -->
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- pixel_size -->
+        <name>pixel_size</name>
+        <version_id>1.0</version_id>
+        <local_identifier>pixel_size</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Length of a side of each pixel in this observation
+        </definition>
+        <!-- TODO: needs to allow a unit of type length! -->
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     
@@ -496,6 +566,42 @@
     <!-- End of attribute definitions -->
 
 <!-- Beginning of class definitions in order from innermost to outermost -->
+    
+    <!-- Beginning of BIDR_Parameters Class definition with attributes in the order as they appear in the label -->
+    <DD_Class> <!-- BIDR_Parameters -->
+        <name>BIDR_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>BIDR_Parameters</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>The BIDR_Parameters class is the container for BIDR-specific metadata elements.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>true</element_flag>
+        <DD_Association>
+            <identifier_reference>pixel_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>projection_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>projection_origin_lat</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>projection_origin_lon</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End of BIDR_Parameters Class definition -->
 
     <!-- Beginning of MGN_Parameters Class definition with attributes in the order as they appear in the label -->
     <DD_Class> <!-- MGN_Parameters -->
@@ -605,6 +711,12 @@
         <DD_Association>
             <identifier_reference>original_pds_volume_id</identifier_reference>
             <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>BIDR_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
