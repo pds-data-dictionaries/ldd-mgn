@@ -946,7 +946,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>X-axis of a coordinate system, as a unit vector</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
         
         <DD_Association>
             <identifier_reference>x</identifier_reference>
@@ -975,7 +975,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>Y-axis of a coordinate system, as a unit vector</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
         
         <DD_Association>
             <identifier_reference>x</identifier_reference>
@@ -1004,7 +1004,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>Z-axis of a coordinate system, as a unit vector</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
         
         <DD_Association>
             <identifier_reference>x</identifier_reference>
@@ -1033,7 +1033,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>Parameters related to the timing of this observation</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
 
         <DD_Association>
             <identifier_reference>mapping_start_time_tdb</identifier_reference>
@@ -1093,7 +1093,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>Keplerians of the spacecraft orbit at the time of this observation</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
 
         <DD_Association>
             <identifier_reference>predicted_periapsis_sclk</identifier_reference>
@@ -1152,7 +1152,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>Parameters related to SCLK conversion</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
 
         <DD_Association>
             <identifier_reference>reference_sclk_factor</identifier_reference>
@@ -1187,7 +1187,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>A specification of the axes of the 3D version of the oblique sinusoidal coordinate system; relative to VBF85 coordinate system</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
         
         <DD_Association>
             <identifier_reference>X_Axis</identifier_reference>
@@ -1217,7 +1217,7 @@
         <submitter_name>GEO</submitter_name>
         <definition>The BIDR_Parameters class is the container for BIDR-specific metadata elements.</definition>
         <abstract_flag>false</abstract_flag>
-        <element_flag>true</element_flag>
+        <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>pixel_size</identifier_reference>
             <reference_type>attribute_of</reference_type>
