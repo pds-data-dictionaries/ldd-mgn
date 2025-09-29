@@ -1,0 +1,694 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        15.3.0
+   LDD Version Id:        1.2.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Mon Sep 29 19:42:29 UTC 2025
+   Common Schema          [PDS4_PDS_1N00.xsd]
+   Common Schematron      [PDS4_PDS_1N00.sch]
+   IM Version Id:         1.23.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.0
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-mgn/ldd-mgn/src/PDS4_MGN_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                9
+   Attributes             46
+   Associations           60
+   Error messages         0
+   Warning messages       0
+   Information messages   0
+
+Detailed validation messages
+
+Parsed Input - Header:
+   LDD Name               MGN
+   LDD Version            1.2.0.0
+   Full Name              Jenn Ward
+   Steward                geo
+   Namespace Id           mgn
+   Comment                
+        The MGN dictionary contains classes that describe aspects of the 
+        Magellan mission and related instruments.
+        
+        MGN version 1.2.0.0
+        PDS Build 1.24.0.0 (1O00)
+        LDDTool version 15.3.0
+        
+        Created with lddtool -plJ -V 1O00 PDS4_MGN_IngestLDD.xml
+    
+   Last Modification Time 2025-09-29
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   band_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The name of the radio band in which the signal was received. 
+
+   name                   clock_intercept_coeff
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Intercept coefficient of the SCLK/SCET conversion (A0), 19-character ASCII string 
+
+   name                   clock_slope_coeff
+   version                1.23
+   value data type        ASCII_Real
+   description            Slope coefficient of the SCLK/SCET conversion (A1), 12-character ASCII string 
+
+   name                   clock_utc_to_j2000_correction_factor
+   version                1.23
+   value data type        ASCII_Real
+   description            UTC-to-epoch J2000 correction factor (DUT), 6-character ASCII string 
+
+   name                   dsn_station_number
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description             The number of the DSN antenna used to collect the data. 
+   minimum value          0
+   maximum value          99
+
+   name                   mapping_cycle
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description            The mapping cycle in which the data were acquired. Should be 1 to 6. 
+   minimum value          1
+   maximum value          6
+
+   name                   mapping_start_time_tdb
+   version                1.23
+   value data type        ASCII_Real
+   description            Mapping start time (SCET) in TDB seconds from epoch J2000 
+
+   name                   mapping_start_time_utc
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Mapping start time (SCET) in UTC timestamp 
+
+   name                   mapping_stop_time_tdb
+   version                1.23
+   value data type        ASCII_Real
+   description            Mapping stop time (SCET) in TDB seconds from epoch J2000 
+
+   name                   mapping_stop_time_utc
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Mapping stop time (SCET) in UTC timestamp 
+
+   name                   mission_phase_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The mission_phase_name attribute provides the mission-defined name of a time period within the mission. 
+
+   name                   nav_uid_ephemeris_file
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            NAV Unique ID of the Spacecraft Ephemeris File. Will be blank if ephemeris file wasn't used. 
+
+   name                   oblique_sinusoidal_start_time_tdb
+   version                1.23
+   value data type        ASCII_Real
+   description            Oblique sinusoidal start time (SCET) in TDB seconds from epoch J2000 
+
+   name                   oblique_sinusoidal_start_time_utc
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Oblique sinusoidal start time (SCET) in UTC timestamp 
+
+   name                   oblique_sinusoidal_stop_time_tdb
+   version                1.23
+   value data type        ASCII_Real
+   description            Oblique sinusoidal stop time (SCET) in TDB seconds from epoch J2000 
+
+   name                   oblique_sinusoidal_stop_time_utc
+   version                1.23
+   value data type        ASCII_Date_Time_YMD_UTC
+   description            Oblique sinusoidal stop time (SCET) in UTC timestamp 
+
+   name                   orbit_argument_of_periapsis
+   version                1.23
+   value data type        ASCII_Real
+   description            Argument of periapsis in degrees from the Orbit Header file on the EDR, J2000 coordinates 
+   unit of measure type   Units_of_Angle
+
+   name                   orbit_ascending_node_lon
+   version                1.23
+   value data type        ASCII_Real
+   description            Longitude of the ascending node in degrees (0 to 360) from the Orbit Header file on the EDR, J2000 coordinates 
+   unit of measure type   Units_of_Angle
+
+   name                   orbit_eccentricity
+   version                1.23
+   value data type        ASCII_Real
+   description            Orbit eccentricity from the Orbit Header file on the EDR 
+
+   name                   orbit_inclination
+   version                1.23
+   value data type        ASCII_Real
+   description            Orbit inclination angle in degrees from the Orbit Header file on the EDR 
+   unit of measure type   Units_of_Angle
+
+   name                   orbit_number
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description            The orbit_number attribute identifies the number of the orbital revolution around a target body. 
+   minimum value          1
+   maximum value          20000
+
+   name                   orbit_period
+   version                1.23
+   value data type        ASCII_Real
+   description            Orbit period 
+   unit of measure type   Units_of_Time
+
+   name                   orbit_semimajor
+   version                1.23
+   value data type        ASCII_Real
+   description            Orbit semi-major axis from the Orbit Header file on the EDR 
+   unit of measure type   Units_of_Length
+
+   name                   organization_id
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The organization that produced the data. 
+
+   name                   original_pds_volume_id
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The original PDS volume_id of where the Magellan data are located. 
+
+   name                   pixel_size
+   version                1.23
+   value data type        ASCII_Real
+   description            Length of a side of each pixel in this observation 
+   unit of measure type   Units_of_Length
+
+   name                   predicted_periapsis_sclk
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Predicted time of periapsis in SCLK, 15-character ASCII string (see SIS Appendix A) 
+
+   name                   predicted_periapsis_tdb
+   version                1.23
+   value data type        ASCII_Real
+   description            Predicted time of periapsis in TDB seconds from epoch J2000 
+
+   name                   producer_institution_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The producer_institution_name attribute identifies a university, research center, NASA center, or other institution associated with the production of a data product. 
+
+   name                   product_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_type attribute indicates the type of data for an individual data product. The values are based on the values used by the Magellan project for their delivery to PDS.
+
+   name                   product_version_id
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_version_id attribute identifies the version of an individual data product. 
+
+   name                   projection_name
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The map projection used in this product, either 'sinusoidal' or 'oblique sinusoidal' 
+
+   name                   projection_origin_lat
+   version                1.23
+   value data type        ASCII_Real
+   description            Latitude of the map projection's origin, in degrees 
+   minimum value          -90
+   maximum value          90
+
+   name                   projection_origin_lon
+   version                1.23
+   value data type        ASCII_Real
+   description            Longitude of the map projection's origin, in degrees (0 to 360) 
+   minimum value          0
+   maximum value          360
+
+   name                   radar_look_direction
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The radar_look_direction attribute provides the direction the radar antenna was pointing relative to the spacecraft ground track along a given orbit. Most cases were Left or Right. Stereo indicates left looking with an incidence angle for stereo measurements. Maxwell is a special case for observing the Maxwell feature. 
+
+   name                   received_polarization_type
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description             The radio polarization of the receiving antenna and feed. 
+
+   name                   reference_sclk_factor
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            Reference SCLK factor (SCLK0), 13-character ASCII string 
+
+   name                   spacecraft_clock_count_partition
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description            The spacecraft_clock_count_partition attribute indicates the clock partition active for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes. 
+
+   name                   spacecraft_clock_start_count
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest. 
+   nillable               true
+
+   name                   spacecraft_clock_stop_count
+   version                1.23
+   value data type        ASCII_Short_String_Collapsed
+   description            The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest. 
+   nillable               true
+
+   name                   start_orbit_number
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description            Provides the the lowest revolution orbit number that contributed data to a given data product. 
+   minimum value          1
+   maximum value          20000
+
+   name                   stop_orbit_number
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description            Provides the the highest revolution orbit number that contributed data to a given data product. 
+   minimum value          1
+   maximum value          20000
+
+   name                   total_bursts
+   version                1.23
+   value data type        ASCII_NonNegative_Integer
+   description            Total number of bursts on the EDR this orbit. 
+   minimum value          1
+
+   name                   x
+   version                1.23
+   value data type        ASCII_Real
+   description            X-coordinate of a unit vector 
+   minimum value          -1
+   maximum value          1
+
+   name                   y
+   version                1.23
+   value data type        ASCII_Real
+   description            Y-coordinate of a unit vector 
+   minimum value          -1
+   maximum value          1
+
+   name                   z
+   version                1.23
+   value data type        ASCII_Real
+   description            Z-coordinate of a unit vector 
+   minimum value          -1
+   maximum value          1
+
+Parsed Input - Classes:
+
+   name                   X_Axis
+   description            X-axis of a coordinate system, as a unit vector
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:x
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:y
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:z
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Y_Axis
+   description            Y-axis of a coordinate system, as a unit vector
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:x
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:y
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:z
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Z_Axis
+   description            Z-axis of a coordinate system, as a unit vector
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:x
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:y
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:z
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Orbit_Metadata
+   description            Parameters related to the timing of this observation
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:mapping_start_time_tdb
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mapping_stop_time_tdb
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mapping_start_time_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mapping_stop_time_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:oblique_sinusoidal_start_time_tdb
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:oblique_sinusoidal_stop_time_tdb
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:oblique_sinusoidal_start_time_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:oblique_sinusoidal_stop_time_utc
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   BIDR_Keplerians
+   description            Keplerians of the spacecraft orbit at the time of this observation
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:predicted_periapsis_sclk
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:predicted_periapsis_tdb
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_semimajor
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_eccentricity
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_inclination
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_ascending_node_lon
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_argument_of_periapsis
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_period
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   BIDR_Clock_Conversion
+   description            Parameters related to SCLK conversion
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:reference_sclk_factor
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:clock_slope_coeff
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:clock_intercept_coeff
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:clock_utc_to_j2000_correction_factor
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   BIDR_Oblique_Sinusoidal_Frame_Axes
+   description            A specification of the axes of the 3D version of the oblique sinusoidal coordinate system; relative to VBF85 coordinate system
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:X_Axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mgn:Y_Axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mgn:Z_Axis
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   BIDR_Parameters
+   description            The BIDR_Parameters class is the container for BIDR-specific metadata elements.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:pixel_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:projection_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:projection_origin_lat
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:projection_origin_lon
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:nav_uid_ephemeris_file
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:total_bursts
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:Orbit_Metadata
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mgn:BIDR_Keplerians
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mgn:BIDR_Clock_Conversion
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mgn:BIDR_Oblique_Sinusoidal_Frame_Axes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Magellan_Parameters
+   description            The Magellan_Parameters class is the container for mission-specific metadata elements.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mgn:product_type
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:product_version_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mapping_cycle
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:start_orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:stop_orbit_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   unbounded
+      reference type        attribute_of
+
+      local identifier      mgn:radar_look_direction
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:spacecraft_clock_count_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:spacecraft_clock_start_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:spacecraft_clock_stop_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:band_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:received_polarization_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:dsn_station_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:organization_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:producer_institution_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:original_pds_volume_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mgn:BIDR_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report

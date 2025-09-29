@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mgn  Version:1.1.0.0 - Fri May 23 14:52:56 UTC 2025 -->
-  <!-- Generated from the PDS4 Information Model Version 1.23.0.0 - System Build 15.0 -->
+  <!-- PDS4 Schematron for Name Space Id:mgn  Version:1.2.0.0 - Mon Sep 29 19:42:25 UTC 2025 -->
+  <!-- Generated from the PDS4 Information Model Version 1.22.0.0 - System Build 14.1 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -18,6 +18,55 @@
 		   <!--        lists. These two types of rules have been -->
 		   <!--        merged together in the rules below.       -->
 		   <!-- ================================================ -->
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Keplerians/mgn:orbit_argument_of_periapsis">
+      <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'microrad', 'mrad', 'rad')">
+        <title>mgn:BIDR_Keplerians/mgn:orbit_argument_of_periapsis/mgn:orbit_argument_of_periapsis</title>
+        The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'microrad', 'mrad', 'rad'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Keplerians/mgn:orbit_ascending_node_lon">
+      <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'microrad', 'mrad', 'rad')">
+        <title>mgn:BIDR_Keplerians/mgn:orbit_ascending_node_lon/mgn:orbit_ascending_node_lon</title>
+        The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'microrad', 'mrad', 'rad'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Keplerians/mgn:orbit_inclination">
+      <sch:assert test="@unit = ('arcmin', 'arcsec', 'deg', 'hr', 'microrad', 'mrad', 'rad')">
+        <title>mgn:BIDR_Keplerians/mgn:orbit_inclination/mgn:orbit_inclination</title>
+        The attribute @unit must be equal to one of the following values 'arcmin', 'arcsec', 'deg', 'hr', 'microrad', 'mrad', 'rad'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Keplerians/mgn:orbit_period">
+      <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr')">
+        <title>mgn:BIDR_Keplerians/mgn:orbit_period/mgn:orbit_period</title>
+        The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 'ns', 's', 'yr'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Keplerians/mgn:orbit_semimajor">
+      <sch:assert test="@unit = ('AU', 'Angstrom', 'cm', 'km', 'm', 'micrometer', 'mm', 'nm')">
+        <title>mgn:BIDR_Keplerians/mgn:orbit_semimajor/mgn:orbit_semimajor</title>
+        The attribute @unit must be equal to one of the following values 'AU', 'Angstrom', 'cm', 'km', 'm', 'micrometer', 'mm', 'nm'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Parameters/mgn:pixel_size">
+      <sch:assert test="@unit = ('AU', 'Angstrom', 'cm', 'km', 'm', 'micrometer', 'mm', 'nm')">
+        <title>mgn:BIDR_Parameters/mgn:pixel_size/mgn:pixel_size</title>
+        The attribute @unit must be equal to one of the following values 'AU', 'Angstrom', 'cm', 'km', 'm', 'micrometer', 'mm', 'nm'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mgn:BIDR_Parameters/mgn:projection_name">
+      <sch:assert test=". = ('oblique sinusoidal', 'sinusoidal')">
+        <title>mgn:BIDR_Parameters/mgn:projection_name/mgn:projection_name</title>
+        The attribute mgn:BIDR_Parameters/mgn:projection_name must be equal to one of the following values 'oblique sinusoidal', 'sinusoidal'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
   <sch:pattern>
     <sch:rule context="mgn:Magellan_Parameters/mgn:band_name">
       <sch:assert test=". = ('S', 'X')">

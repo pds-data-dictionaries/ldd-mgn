@@ -1,9 +1,9 @@
 
 >>  INFO LDDTOOL Version: 15.3.0
->>  INFO IM Version Id: 1.23.0.0
+>>  INFO IM Version Id: 1.24.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.0
->>  INFO Date: Fri May 23 14:52:56 UTC 2025
+>>  INFO Date: Mon Sep 29 19:42:29 UTC 2025
 >>  INFO PARENT_DIR: /tmp/lddtool-15.3.0/Data/
 
 >>> INFO Init:  - Config.Properties Namespace Id Found:mgn
@@ -18,12 +18,26 @@
 >>> INFO Attribute: <mission_phase_name> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <orbit_number> - The default maximum value provided by the attribute's data type is being overridden with 20000
+>>> INFO Attribute: <projection_origin_lat> - The default minimum value provided by the attribute's data type is being overridden with -90
+>>> INFO Attribute: <projection_origin_lat> - The default maximum value provided by the attribute's data type is being overridden with 90
+>>> INFO Attribute: <projection_origin_lon> - The default minimum value provided by the attribute's data type is being overridden with 0
+>>> INFO Attribute: <projection_origin_lon> - The default maximum value provided by the attribute's data type is being overridden with 360
 >>> INFO Attribute: <spacecraft_clock_start_count> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <spacecraft_clock_stop_count> - This local attribute has a duplicate in the PDS4 data dictionary.
 >>> INFO Attribute: <start_orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <start_orbit_number> - The default maximum value provided by the attribute's data type is being overridden with 20000
 >>> INFO Attribute: <stop_orbit_number> - The default minimum value provided by the attribute's data type is being overridden with 1
 >>> INFO Attribute: <stop_orbit_number> - The default maximum value provided by the attribute's data type is being overridden with 20000
+>>> INFO Attribute: <total_bursts> - The default minimum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <x> - The default minimum value provided by the attribute's data type is being overridden with -1
+>>> INFO Attribute: <x> - The default maximum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <x> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <y> - The default minimum value provided by the attribute's data type is being overridden with -1
+>>> INFO Attribute: <y> - The default maximum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <y> - This local attribute has a duplicate in the PDS4 data dictionary.
+>>> INFO Attribute: <z> - The default minimum value provided by the attribute's data type is being overridden with -1
+>>> INFO Attribute: <z> - The default maximum value provided by the attribute's data type is being overridden with 1
+>>> INFO Attribute: <z> - This local attribute has a duplicate in the PDS4 data dictionary.
 
  -- LDDTool Execution Summary --
      0 warning(s)
@@ -32,19 +46,18 @@
 
 Input:
 
-     - IM Version: 1N00
+     - IM Version: 1O00
      - PDS4 Flag: true
      - LDD Flag: true
-     - IM Version: true
      - Export JSON Flag: true
 
      - Ingest LDD(s): /home/runner/work/ldd-mgn/ldd-mgn/src/PDS4_MGN_IngestLDD.xml
 
 Output:
 
-     - ./PDS4_MGN_1N00_1100.xsd
-     - ./PDS4_MGN_1N00_1100.sch
-     - ./PDS4_MGN_1N00_1100.xml
-     - ./export/PDS4_PDS_1N00.JSON
+     - ./PDS4_MGN_1O00_1200.xsd
+     - ./PDS4_MGN_1O00_1200.sch
+     - ./PDS4_MGN_1O00_1200.xml
+     - ./export/PDS4_PDS_1O00.JSON
 
 >>  INFO Exit(0)
