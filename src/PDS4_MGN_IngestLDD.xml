@@ -19,6 +19,10 @@
     Moved some 9/26/2023 comments from <Ingest_LDD>/<comment> to the text
     block you are reading now (above).
     Corrected typo "Harmononic" -> "Harmonic".
+
+    09/29/2025 GEO/DVP
+    Added BIDR_Parameters class, additional classes that are its components,
+    and their attributes, in support of F-BIDR migration.
     -->
 
 <Ingest_LDD 
@@ -36,13 +40,13 @@
         The MGN dictionary contains classes that describe aspects of the 
         Magellan mission and related instruments.
         
-        MGN version 1.1.0.0
-        PDS Build 1.22.0.0 (1M00)
-        LDDTool version 15.1.0
+        MGN version 1.2.0.0
+        PDS Build 1.24.0.0 (1O00)
+        LDDTool version 15.3.0
         
-        Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
+        Created with lddtool -plJ -V 1O00 PDS4_MGN_IngestLDD.xml
     </comment>
-    <last_modification_date_time>2024-12-04</last_modification_date_time>
+    <last_modification_date_time>2025-09-29</last_modification_date_time>
     
     <!-- Beginning of attribute definitions in alphabetical order -->
 
