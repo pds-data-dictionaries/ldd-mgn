@@ -3,12 +3,16 @@
     href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
-<!-- 11/23/2021 GEO/EAG Initial version
+<!-- 
+    11/23/2021 GEO/EAG
+    Initial version
+
     09/26/2023
     Added new mission phases for mapping cycles.
     Added P-MIDR for polar MIDRs.
     Renamed attribute pds3_volume_id to original_pds_volume_id because many
     Magellan datasets were created using standards that predate PDS3.
+
     12/4/2024 GEO/EIS
     Added band_name, dsn_station_number, organization_id, and 
     received_polarization_type.
