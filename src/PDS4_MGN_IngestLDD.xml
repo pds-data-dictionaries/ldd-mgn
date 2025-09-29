@@ -23,7 +23,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd">
     <name>MGN</name>
-    <ldd_version_id>1.2.0.0</ldd_version_id> <!-- TODO: must confirm which value to increment for F-BIDR changes -->
+    <ldd_version_id>1.2.0.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jenn Ward</full_name>
     <steward_id>geo</steward_id>
@@ -288,7 +288,7 @@
         <local_identifier>nav_uid_ephemeris_file</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
-        <definition>NAV Unique ID of the Spacecaft Ephemeris File. Will be blank if ephemeris file wasn't used.
+        <definition>NAV Unique ID of the Spacecraft Ephemeris File. Will be blank if ephemeris file wasn't used.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -500,7 +500,6 @@
         <submitter_name>GEO</submitter_name>
         <definition>Length of a side of each pixel in this observation
         </definition>
-        <!-- TODO: needs to allow a unit of type length! -->
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
@@ -886,7 +885,7 @@
         <local_identifier>x</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
-        <definition>TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        <definition>X-coordinate of a unit vector
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -902,7 +901,7 @@
         <local_identifier>y</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
-        <definition>TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        <definition>Y-coordinate of a unit vector
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -918,7 +917,7 @@
         <local_identifier>z</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
-        <definition>TODOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        <definition>Z-coordinate of a unit vector
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -937,7 +936,7 @@
         <version_id>1.0</version_id>
         <local_identifier>X_Axis</local_identifier>
         <submitter_name>GEO</submitter_name>
-        <definition>TODOOOOOOOOOOOOOOOOOOOOOOOOOOOO</definition>
+        <definition>X-axis of a coordinate system, as a unit vector</definition>
         <abstract_flag>false</abstract_flag>
         <element_flag>true</element_flag>
         
@@ -966,7 +965,7 @@
         <version_id>1.0</version_id>
         <local_identifier>Y_Axis</local_identifier>
         <submitter_name>GEO</submitter_name>
-        <definition>TODOOOOOOOOOOOOOOOOOOOOOOOOOOOO</definition>
+        <definition>Y-axis of a coordinate system, as a unit vector</definition>
         <abstract_flag>false</abstract_flag>
         <element_flag>true</element_flag>
         
@@ -995,7 +994,7 @@
         <version_id>1.0</version_id>
         <local_identifier>Z_Axis</local_identifier>
         <submitter_name>GEO</submitter_name>
-        <definition>TODOOOOOOOOOOOOOOOOOOOOOOOOOOOO</definition>
+        <definition>Z-axis of a coordinate system, as a unit vector</definition>
         <abstract_flag>false</abstract_flag>
         <element_flag>true</element_flag>
         
