@@ -20,9 +20,10 @@
     block you are reading now (above).
     Corrected typo "Harmononic" -> "Harmonic".
 
-    09/29/2025 GEO/DVP
+    05/26/2026 GEO/DVP
     Added BIDR_Parameters class, additional classes that are its components,
     and their attributes, in support of F-BIDR migration.
+    Added pre-Mapping Cycle 1 mission phases, in support of F-BIDR migration.
     -->
 
 <Ingest_LDD 
