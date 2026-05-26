@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.sch"
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
-<!-- 11/23/2021 GEO/EAG Initial version
+<!-- 
+    11/23/2021 GEO/EAG
+    Initial version
+
     09/26/2023
     Added new mission phases for mapping cycles.
     Added P-MIDR for polar MIDRs.
     Renamed attribute pds3_volume_id to original_pds_volume_id because many
     Magellan datasets were created using standards that predate PDS3.
+
     12/4/2024 GEO/EIS
     Added band_name, dsn_station_number, organization_id, and 
     received_polarization_type.
     Moved some 9/26/2023 comments from <Ingest_LDD>/<comment> to the text
     block you are reading now (above).
     Corrected typo "Harmononic" -> "Harmonic".
+
+    05/26/2026 GEO/DVP
+    Added BIDR_Parameters class, additional classes that are its components,
+    and their attributes, in support of F-BIDR migration.
+    Added pre-Mapping Cycle 1 mission phases, in support of F-BIDR migration.
     -->
 
 <Ingest_LDD 
@@ -23,7 +32,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1M00.xsd">
     <name>MGN</name>
-    <ldd_version_id>1.1.0.0</ldd_version_id>
+    <ldd_version_id>1.2.0.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jenn Ward</full_name>
     <steward_id>geo</steward_id>
@@ -32,13 +41,15 @@
         The MGN dictionary contains classes that describe aspects of the 
         Magellan mission and related instruments.
         
-        MGN version 1.1.0.0
-        PDS Build 1.22.0.0 (1M00)
-        LDDTool version 15.1.0
+        MGN version 1.2.0.0
+        PDS Build 1.24.0.0 (1O00)
+        LDDTool version 15.3.0
         
-        Created with lddtool -plJ -V 1M00 PDS4_MGN_IngestLDD.xml
+        Created with lddtool -plJ -V 1O00 PDS4_MGN_IngestLDD.xml
     </comment>
-    <last_modification_date_time>2024-12-04</last_modification_date_time>
+    <last_modification_date_time>2026-05-26</last_modification_date_time>
+    
+    <!-- Beginning of attribute definitions in alphabetical order -->
 
     <DD_Attribute> <!-- band_name -->
         <name>band_name</name>
@@ -63,6 +74,48 @@
         </DD_Value_Domain>
     </DD_Attribute>
 
+    <DD_Attribute> <!-- clock_intercept_coeff -->
+        <name>clock_intercept_coeff</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clock_intercept_coeff</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Intercept coefficient of the SCLK/SCET conversion (A0), 19-character ASCII string
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- clock_slope_coeff -->
+        <name>clock_slope_coeff</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clock_slope_coeff</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Slope coefficient of the SCLK/SCET conversion (A1), 12-character ASCII string
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- clock_utc_to_j2000_correction_factor -->
+        <name>clock_utc_to_j2000_correction_factor</name>
+        <version_id>1.0</version_id>
+        <local_identifier>clock_utc_to_j2000_correction_factor</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>UTC-to-epoch J2000 correction factor (DUT), 6-character ASCII string
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
     <DD_Attribute> <!-- dsn_station_number -->
         <name>dsn_station_number</name>
         <version_id>1.0</version_id>
@@ -96,6 +149,62 @@
         </DD_Value_Domain>
     </DD_Attribute>
     
+    <DD_Attribute> <!-- mapping_start_time_tdb -->
+        <name>mapping_start_time_tdb</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mapping_start_time_tdb</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Mapping start time (SCET) in TDB seconds from epoch J2000
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- mapping_start_time_utc -->
+        <name>mapping_start_time_utc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mapping_start_time_utc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Mapping start time (SCET) in UTC timestamp
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- mapping_stop_time_tdb -->
+        <name>mapping_stop_time_tdb</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mapping_stop_time_tdb</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Mapping stop time (SCET) in TDB seconds from epoch J2000
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- mapping_stop_time_utc -->
+        <name>mapping_stop_time_utc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mapping_stop_time_utc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Mapping stop time (SCET) in UTC timestamp
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
     <DD_Attribute> <!-- mission_phase_name -->
         <name>mission_phase_name</name>
         <version_id>1.0</version_id>
@@ -109,6 +218,24 @@
         <DD_Value_Domain>
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>Cruise</value>
+                <value_meaning>The cruise phase extended from injection into the Earth-Venus
+                    trajectory until 10 days before Venus orbit insertion. Started 1989-05-04
+                    and ended 1990-08-01.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Orbit Insertion</value>
+                <value_meaning>The Venus orbit insertion phase extended from 10 days before
+                    Venus orbit insertion until burnout of the solid rocket
+                    injection motor. Started 1990-08-01 and ended 1990-08-10.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>Orbit Checkout</value>
+                <value_meaning>The orbit trim and checkout phase extended from burnout of the
+                    solid rocket injection motor until the beginning of radar mapping. Started
+                    1990-08-10 and ended 1990-09-15.</value_meaning>
+            </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>Mapping Cycle 1</value>
                 <value_meaning>The first mapping cycle extended from completion of the orbit 
@@ -181,6 +308,182 @@
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
+    
+    <DD_Attribute> <!-- nav_uid_ephemeris_file -->
+        <name>nav_uid_ephemeris_file</name>
+        <version_id>1.0</version_id>
+        <local_identifier>nav_uid_ephemeris_file</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>NAV Unique ID of the Spacecraft Ephemeris File. Will be blank if ephemeris file wasn't used.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- oblique_sinusoidal_start_time_tdb -->
+        <name>oblique_sinusoidal_start_time_tdb</name>
+        <version_id>1.0</version_id>
+        <local_identifier>oblique_sinusoidal_start_time_tdb</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Oblique sinusoidal start time (SCET) in TDB seconds from epoch J2000
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- oblique_sinusoidal_start_time_utc -->
+        <name>oblique_sinusoidal_start_time_utc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>oblique_sinusoidal_start_time_utc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Oblique sinusoidal start time (SCET) in UTC timestamp
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- oblique_sinusoidal_stop_time_tdb -->
+        <name>oblique_sinusoidal_stop_time_tdb</name>
+        <version_id>1.0</version_id>
+        <local_identifier>oblique_sinusoidal_stop_time_tdb</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Oblique sinusoidal stop time (SCET) in TDB seconds from epoch J2000
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- oblique_sinusoidal_stop_time_utc -->
+        <name>oblique_sinusoidal_stop_time_utc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>oblique_sinusoidal_stop_time_utc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Oblique sinusoidal stop time (SCET) in UTC timestamp
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_argument_of_periapsis -->
+        <name>orbit_argument_of_periapsis</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_argument_of_periapsis</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Argument of periapsis in degrees from the Orbit Header file on the EDR, J2000 coordinates
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_ascending_node_lon -->
+        <name>orbit_ascending_node_lon</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_ascending_node_lon</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Longitude of the ascending node in degrees (0 to 360) from the Orbit Header file on the EDR, J2000 coordinates
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_eccentricity -->
+        <name>orbit_eccentricity</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_eccentricity</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Orbit eccentricity from the Orbit Header file on the EDR
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_inclination -->
+        <name>orbit_inclination</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_inclination</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Orbit inclination angle in degrees from the Orbit Header file on the EDR
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Angle</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_number -->
+        <name>orbit_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The orbit_number attribute identifies the number of the 
+           orbital revolution around a target body.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+            <maximum_value>20000</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_period -->
+        <name>orbit_period</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_period</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Orbit period
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- orbit_semimajor -->
+        <name>orbit_semimajor</name>
+        <version_id>1.0</version_id>
+        <local_identifier>orbit_semimajor</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Orbit semi-major axis from the Orbit Header file on the EDR
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
 
     <DD_Attribute> <!-- organization_id -->
         <name>organization_id</name>
@@ -201,23 +504,6 @@
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>    
-
-    <DD_Attribute> <!-- orbit_number -->
-        <name>orbit_number</name>
-        <version_id>1.0</version_id>
-        <local_identifier>orbit_number</local_identifier>
-        <nillable_flag>false</nillable_flag>
-        <submitter_name>GEO</submitter_name>
-        <definition>The orbit_number attribute identifies the number of the 
-           orbital revolution around a target body.
-        </definition>
-        <DD_Value_Domain>
-            <enumeration_flag>false</enumeration_flag>
-            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
-            <minimum_value>1</minimum_value>
-            <maximum_value>20000</maximum_value>
-        </DD_Value_Domain>
-    </DD_Attribute>
     
     <DD_Attribute> <!-- original_pds_volume_id -->
         <name>original_pds_volume_id</name>
@@ -230,6 +516,49 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- pixel_size -->
+        <name>pixel_size</name>
+        <version_id>1.0</version_id>
+        <local_identifier>pixel_size</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Length of a side of each pixel in this observation
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- predicted_periapsis_sclk -->
+        <name>predicted_periapsis_sclk</name>
+        <version_id>1.0</version_id>
+        <local_identifier>predicted_periapsis_sclk</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Predicted time of periapsis in SCLK, 15-character ASCII string (see SIS Appendix A)
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- predicted_periapsis_tdb -->
+        <name>predicted_periapsis_tdb</name>
+        <version_id>1.0</version_id>
+        <local_identifier>predicted_periapsis_tdb</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Predicted time of periapsis in TDB seconds from epoch J2000
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     
@@ -350,6 +679,61 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+
+    <DD_Attribute> <!-- projection_name -->
+        <name>projection_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>projection_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The map projection used in this product, either 'sinusoidal' or 'oblique sinusoidal'
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>sinusoidal</value>
+                <value_meaning>Non-oblique sinusoidal map projection</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>oblique sinusoidal</value>
+                <value_meaning>Oblique sinusoidal map projection</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- projection_origin_lat -->
+        <name>projection_origin_lat</name>
+        <version_id>1.0</version_id>
+        <local_identifier>projection_origin_lat</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Latitude of the map projection's origin, in degrees
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-90</minimum_value>
+            <maximum_value>90</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- projection_origin_lon -->
+        <name>projection_origin_lon</name>
+        <version_id>1.0</version_id>
+        <local_identifier>projection_origin_lon</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Longitude of the map projection's origin, in degrees (0 to 360)
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>360</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
     
     <DD_Attribute> <!-- radar_look_direction -->
         <name>radar_look_direction</name>
@@ -410,6 +794,20 @@
                 <value>left circular</value>
                 <value_meaning>Left circular polarization</value_meaning>
             </DD_Permissible_Value>            
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <DD_Attribute> <!-- reference_sclk_factor -->
+        <name>reference_sclk_factor</name>
+        <version_id>1.0</version_id>
+        <local_identifier>reference_sclk_factor</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Reference SCLK factor (SCLK0), 13-character ASCII string
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
 
@@ -493,9 +891,415 @@
         </DD_Value_Domain>
     </DD_Attribute>
     
+    <DD_Attribute> <!-- total_bursts -->
+        <name>total_bursts</name>
+        <version_id>1.0</version_id>
+        <local_identifier>total_bursts</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Total number of bursts on the EDR this orbit.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+            <minimum_value>1</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- x -->
+        <name>x</name>
+        <version_id>1.0</version_id>
+        <local_identifier>x</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>X-coordinate of a unit vector
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-1</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- y -->
+        <name>y</name>
+        <version_id>1.0</version_id>
+        <local_identifier>y</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Y-coordinate of a unit vector
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-1</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute> <!-- z -->
+        <name>z</name>
+        <version_id>1.0</version_id>
+        <local_identifier>z</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>Z-coordinate of a unit vector
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <minimum_value>-1</minimum_value>
+            <maximum_value>1</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
     <!-- End of attribute definitions -->
 
 <!-- Beginning of class definitions in order from innermost to outermost -->
+    
+    <DD_Class> <!-- X_Axis -->
+        <name>X_Axis</name>
+        <version_id>1.0</version_id>
+        <local_identifier>X_Axis</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>X-axis of a coordinate system, as a unit vector</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        
+        <DD_Association>
+            <identifier_reference>x</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>y</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>z</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class> <!-- Y_Axis -->
+        <name>Y_Axis</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Y_Axis</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>Y-axis of a coordinate system, as a unit vector</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        
+        <DD_Association>
+            <identifier_reference>x</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>y</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>z</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class> <!-- Z_Axis -->
+        <name>Z_Axis</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Z_Axis</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>Z-axis of a coordinate system, as a unit vector</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        
+        <DD_Association>
+            <identifier_reference>x</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>y</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>z</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class> <!-- Orbit_Metadata -->
+        <name>Orbit_Metadata</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Orbit_Metadata</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>Parameters related to the timing of this observation</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+
+        <DD_Association>
+            <identifier_reference>mapping_start_time_tdb</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mapping_stop_time_tdb</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mapping_start_time_utc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mapping_stop_time_utc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+
+        <DD_Association>
+            <identifier_reference>oblique_sinusoidal_start_time_tdb</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>oblique_sinusoidal_stop_time_tdb</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>oblique_sinusoidal_start_time_utc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>oblique_sinusoidal_stop_time_utc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class> <!-- BIDR_Keplerians -->
+        <name>BIDR_Keplerians</name>
+        <version_id>1.0</version_id>
+        <local_identifier>BIDR_Keplerians</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>Keplerians of the spacecraft orbit at the time of this observation</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+
+        <DD_Association>
+            <identifier_reference>predicted_periapsis_sclk</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>predicted_periapsis_tdb</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_semimajor</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_eccentricity</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_inclination</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_ascending_node_lon</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_argument_of_periapsis</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>orbit_period</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class> <!-- BIDR_Clock_Conversion -->
+        <name>BIDR_Clock_Conversion</name>
+        <version_id>1.0</version_id>
+        <local_identifier>BIDR_Clock_Conversion</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>Parameters related to SCLK conversion</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+
+        <DD_Association>
+            <identifier_reference>reference_sclk_factor</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clock_slope_coeff</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clock_intercept_coeff</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>clock_utc_to_j2000_correction_factor</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class> <!-- BIDR_Oblique_Sinusoidal_Frame_Axes -->
+        <name>BIDR_Oblique_Sinusoidal_Frame_Axes</name>
+        <version_id>1.0</version_id>
+        <local_identifier>BIDR_Oblique_Sinusoidal_Frame_Axes</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>A specification of the axes of the 3D version of the oblique sinusoidal coordinate system; relative to VBF85 coordinate system</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        
+        <DD_Association>
+            <identifier_reference>X_Axis</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Y_Axis</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Z_Axis</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <!-- Beginning of BIDR_Parameters Class definition with attributes in the order as they appear in the label -->
+    <DD_Class> <!-- BIDR_Parameters -->
+        <name>BIDR_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>BIDR_Parameters</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>The BIDR_Parameters class is the container for BIDR-specific metadata elements.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>pixel_size</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>projection_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>projection_origin_lat</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>projection_origin_lon</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>nav_uid_ephemeris_file</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>total_bursts</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        
+        <DD_Association>
+            <identifier_reference>Orbit_Metadata</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>BIDR_Keplerians</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>BIDR_Clock_Conversion</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>BIDR_Oblique_Sinusoidal_Frame_Axes</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End of BIDR_Parameters Class definition -->
 
     <!-- Beginning of MGN_Parameters Class definition with attributes in the order as they appear in the label -->
     <DD_Class> <!-- MGN_Parameters -->
@@ -605,6 +1409,13 @@
         <DD_Association>
             <identifier_reference>original_pds_volume_id</identifier_reference>
             <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        
+        <DD_Association>
+            <identifier_reference>BIDR_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
